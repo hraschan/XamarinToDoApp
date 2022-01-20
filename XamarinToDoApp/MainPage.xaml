@@ -10,8 +10,21 @@
         <local:TodoListViewModel/>
     </ContentPage.BindingContext>
 
+
+    
+
+    
+     
     <StackLayout>
-        <Entry x:Name="InputField" Text="{Binding NewTodoInputValue}" Placeholder="Enter a todo" ReturnCommand="{Binding AddTodoCommand}" />
+        <StackLayout>
+            <!--1. Entry anlegen -->
+            <Entry x:Name="InputFieldShowcase"  Placeholder="Enter a todo" TextChanged="InputField_TextChanged" Completed="InputFieldShowcase_Completed"/>
+            <StackLayout x:Name="ToDoListShowcase">
+                
+            </StackLayout>
+        </StackLayout>
+        <!--2. Stacklayout anlegen -->
+        <Entry x:Name="InputField" Text="{Binding NewTodoInputValue}" Placeholder="Enter a todo" ReturnCommand="{Binding AddTodoCommand}"/>
         <Label Text="To Do's" FontSize="20"  Padding="0,10" HorizontalTextAlignment="Center"/>
         <ListView x:Name="TodoList" ItemsSource="{Binding todoItems}" SeparatorVisibility="Default" >
             <ListView.ItemTemplate >

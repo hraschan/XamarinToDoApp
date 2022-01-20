@@ -9,13 +9,16 @@ namespace XamarinToDoApp
 {
     internal class TodoListViewModel
     {
+        // Liste
         public ObservableCollection<ToDoItem> todoItems { get; set; }
 
+        // Commands
         public ICommand AddTodoCommand => new Command(AddTodoItem);
         public ICommand DeleteTodoCommand => new Command(DeleteTodoItem);
 
         public string NewTodoInputValue { get; set; }
 
+        // Constructor
         public TodoListViewModel()
         {
            todoItems = new ObservableCollection<ToDoItem>();
@@ -25,6 +28,7 @@ namespace XamarinToDoApp
 
         }
 
+        // Add todo item
         void AddTodoItem()
         {
             todoItems.Add(new ToDoItem(NewTodoInputValue, false));
@@ -32,6 +36,7 @@ namespace XamarinToDoApp
 
         }
 
+        // Delete Todo item
         void DeleteTodoItem(object item)
         {
             ToDoItem todoItemBeingRemoved = item as ToDoItem;
